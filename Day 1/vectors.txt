@@ -1,0 +1,48 @@
+Vector Containers
+1D Vectors
+C++ also has several container types that can be used for storing data. We will start with vectors, as these will be used throughout this lesson, but we will also introduce other container types as needed.
+
+Vectors are a sequence of elements of a single type, and have useful methods for getting the size, testing if the vector is empty, and adding elements to the vector.
+
+#include <iostream>
+#include <vector>
+using std::vector;
+using std::cout;
+
+int main() {
+    // Three ways of declaring and initializing vectors.
+    vector<int> v_1{0, 1, 2};
+    vector<int> v_2 = {3, 4, 5};
+    vector<int> v_3;
+    v_3 = {6};
+    cout << "Everything worked!" << "\n";
+}
+
+2D vectors:
+#include <iostream>
+#include <vector>
+using std::vector;
+using std::cout;
+
+int main() {
+    // Creating a 2D vector.
+    vector<vector<int>> v {{1,2}, {3,4}};
+    cout << "Great! A 2D vector has been created." << "\n";
+}
+
+Using auto
+In your previous code, the type for each variable was explicitly declared. In general, this is not necessary, and the compiler can determine the type based on the value being assigned. To have the type automatically determined, use the auto keyword. You can test this by executing the cell below:
+
+#include <iostream>
+#include <vector>
+using std::vector;
+using std::cout;
+
+int main() {
+    auto i = 5;
+    auto v_6 = {1, 2, 3};
+    cout << "Variables declared and initialized without explicitly stating type!" << "\n";
+}
+
+If you tried to access the elements of a using an out-of-bound index, you might have noticed that there is no error or exception thrown. 
+In this case, the behavior is undefined, so you can not depend on a certain value to be returned. Be careful about this! In a later lesson where you will learn about exceptions, we will discuss other ways to access vector elements that don't fail silently with out-of-range indices.

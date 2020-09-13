@@ -19,3 +19,7 @@ Note that the second two lines in the example end with a semicolon ;. Coding sta
 cout << "Hello!" << "\n";
 
 In this line, the code is using cout to send output to the notebook. The << operator is the stream insertion operator, and it writes what's on the right side of the operator to the left side. So in this case, "Message here" is written to the output stream cout.
+
+string declaration in c++
+std::string b;
+b ="a string";
