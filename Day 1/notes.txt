@@ -24,5 +24,8 @@ Running either make build or make clean (or any other target) on the command lin
 CMake
 CMake is a built tool that facilitates cross-platform builds, so that it is straightforward to build the same source code on Linux, macOS, Windows, or any other operating system. CMake relies on a CMakeLists.txt file, which configures appropriate cross-platform targets.
 
+Code compilation:
+std::cout << "Hello World!" << "\n";
+ The code is compiled from right to left "\n" is first sent to "Hello World" and then whole is sent to cout.
 
 
