@@ -1,0 +1,54 @@
+Streaming ints from a string with istringstream
+In C++ strings can be streamed into temporary variables, similarly to how files can be streamed into strings. Streaming a string allows us to work with each character individually.
+
+One way to stream a string is to use an input string stream object istringstream from the <sstream> header.
+
+Once an istringstream object has been created, parts of the string can be streamed and stored using the "extraction operator": >>. The extraction operator will read until whitespace is reached or until the stream fails.
+
+#include <iostream>
+#include <sstream>
+#include <string>
+
+using std::istringstream;
+using std::string;
+using std::cout;
+
+int main () {
+    string a("1 2 3");
+
+    istringstream my_stream(a);
+    
+    int n;
+    
+    while (my_stream >> n) {
+      cout << "That stream was successful: " << n << "\n";
+    }
+    cout << "The stream has failed." << "\n";
+    
+}
+
+Strings with Mixed Types
+In the stream example above, the string contained only whitespaces and characters which could be converted to ints. If the string has mixed types, more care is needed to process the string. In the following example, the type char is used, which is a type that can hold only a single ASCII character.
+
+#include <iostream>
+#include <sstream>
+#include <string>
+​
+using std::istringstream;
+using std::string;
+using std::cout;
+​
+int main() 
+{
+    string b("1,2,3");
+​
+    istringstream my_stream(b);
+​
+    char c;
+    int n;
+​
+    while (my_stream >> n >> c) {
+      cout << "That stream was successful:" << n << " " << c << "\n";
+    }
+    cout << "The stream has failed." << "\n";
+}

@@ -1,0 +1,21 @@
+For Loop with a Container
+C++ offers several ways to iterate over containers. One way is to use an index-based loop as above. Another way is using a "range-based loop", which you will see frequently in the rest of this course. See the following code for an example of how this works:
+
+#include <iostream>
+#include <vector>
+using std::cout;
+using std::vector;
+​
+int main() {
+    // Add your code here.
+    vector<int> a {1, 2, 3, 4, 5};
+    for (int i: a) {
+        cout << i << "\n";
+    }
+}
+
+When a function is declared and defined in a single C++ file, the basic syntax is as follows:
+
+return_type FunctionName(parameter_list) {
+  // Body of function here.
+}
