@@ -1,0 +1,30 @@
+The first lines that you'll want in your CMakeLists.txt are lines that specifies the minimum versions of cmake and C++ required to build the project. Add the following lines to your CMakeLists.txt and save the file:
+
+cmake_minimum_required(VERSION 3.5.1)
+
+set(CMAKE_CXX_STANDARD 14)
+These lines set the minimum cmake version required to 3.5.1 and set the environment variable CMAKE_CXX_STANDARD so CMake uses C++ 14. On your own computer, if you have a recent g++ compiler, you could use C++ 17 instead.
+
+CMake Step 2
+CMake requires that we name the project, so you should choose a name for the project and then add the following line to CMakeLists.txt:
+
+
+project(<your_project_name>)
+You can choose any name you want, but be sure to change <your_project_name> to the actual name of the project!
+
+
+CMake Step 3
+Next, we want to add an executable to this project. You can do that with the add_executable command by specifying the executable name, along with the locations of all the source files that you will need. CMake has the ability to automatically find source files in a directory, but for now, you can just specify each file needed:
+
+
+add_executable(your_executable_name  path_to_file_1  path_to_file_2 ...)
+Hint: The source files you need are the three .cpp files in the src/ directory. You can specify the path relative to the CMakeLists.txt
+
+Example:
+cmake_minimum_required(VERSION 3.5.1)
+
+set(CMAKE_CXX_STANDARD 14)
+
+project(MyFirstProject)
+
+add_executable(first src/main.cpp src/increment_and_sum.cpp src/vect_add_one.cpp)
