@@ -1,0 +1,34 @@
+There are two things to note in the code below.
+
+When the class methods are defined outside the class, the scope resolution operator :: must be used to indicate which class the method belongs to. For example, in the definition of the PrintCarData method you see:
+
+void Car::PrintCarData()
+This prevents any compiler issues if there are are two classes with methods that have the same name.
+
+We have changed how the constructor initializes the variables. Instead of the previous constructor:
+
+Car(string c, int n) {
+   color = c; 
+   number = n;
+}
+the constructor now uses an initializer list:
+
+Car(string c, int n) : color(c), number(n) {}
+Here, the class members are initialized before the body of the constructor (which is now empty). Initializer lists are a quick way to initialize many class attributes in the constructor. Additionally, the compiler treats attributes initialized in the list slightly differently than if they are initialized in the constructor body. For reasons beyond the scope of this course, if a class attribute is a reference, it must be initialized using an initializer list.
+
+Variables that don't need to be visible outside of the class are set as private. This means that they can not be accessed outside of the class, which prevents them from being accidentally changed.
+
+The arrow operator -> is used to simultaneously
+
+dereference a pointer to an object and
+access an attribute or method.
+For example, in the code below, cp is a pointer to a Car object, and the following two are equivalent:
+
+// Simultaneously dereference the pointer and 
+// access IncrementDistance().
+cp->IncrementDistance();
+
+// Dereference the pointer using *, then 
+// access IncrementDistance() with traditional 
+// dot notation.
+(*cp).IncrementDistance();
