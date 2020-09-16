@@ -1,0 +1,6 @@
+A map (alternatively hash table, hash map, or dictionary) is a data structure that uses key/value pairs to store data, and provides efficient lookup and insertion of the data.
+
+To create an unordered_map in C++, you must include the <unordered_map> header, and the sytnax for declaring an unordered_map is as follows:
+
+unordered_map <key_type, value_type> variable_name;
+In the code below, we check if the key is in the unordered_map using the .find() method. If the key does not exist in the map, then .find() returns an unordered_map::end() type. Otherwise, .find() returns a C++ iterator, which is a pointer that points to the beginning of the iterable key-value pair.
