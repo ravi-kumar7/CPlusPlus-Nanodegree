@@ -1,0 +1,7 @@
+Pro Tip:
+
+// Add start_node to path_found
+path_found.push_back(*current_node);
+
+// Reverse the order of path_found
+std::reverse(std::begin(path_found), std::end(path_found));
