@@ -1,0 +1,2 @@
+Abstraction
+Abstraction refers to the separation of a class's interface from the details of its implementation. The interface provides a way to interact with an object, while hiding the details and implementation of how the class works.
