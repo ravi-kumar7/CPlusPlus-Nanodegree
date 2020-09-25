@@ -1,0 +1,34 @@
+class Vehicle {
+public:
+  int wheels = 0;
+  string color = "blue";
+
+  void Print() const
+  {
+    std::cout << "This " << color << " vehicle has " << wheels << " wheels!\n";
+  }
+};
+We can derive other classes from Vehicle, such as Car or Bicycle. One advantage is that this saves us from having to re-define all of the common member variables - in this case, wheels and color - in each derived class.
+
+Another benefit is that derived classes, for example Car and Bicycle, can have distinct member variables, such as sunroof or kickstand. Different derived classes will have different member variables:
+
+class Car : public Vehicle {
+public:
+  bool sunroof = false;
+};
+
+class Bicycle : public Vehicle {
+public:
+  bool kickstand = true;
+};
+
+Inherited Access Specifiers
+Just as access specifiers (i.e. public, protected, and private) define which class members users can access, the same access modifiers also define which class members users of a derived classes can access.
+
+Public inheritance: the public and protected members of the base class listed after the specifier keep their member access in the derived class
+
+Protected inheritance: the public and protected members of the base class listed after the specifier are protected members of the derived class
+
+Private inheritance: the public and protected members of the base class listed after the specifier are private members of the derived class
+
+Source: C++ reference
