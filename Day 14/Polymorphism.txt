@@ -1,0 +1,41 @@
+Polymorphism
+Polymorphism is means "assuming many forms".
+
+In the context of object-oriented programming, polymorphism) describes a paradigm in which a function may behave differently depending on how it is called. In particular, the function will perform differently based on its inputs.
+
+Polymorphism can be achieved in two ways in C++: overloading and overriding. In this exercise we will focus on overloading.
+
+Overloading
+In C++, you can write two (or more) versions of a function with the same name. This is called "overloading". Overloading requires that we leave the function name the same, but we modify the function signature. For example, we might define the same function name with multiple different configurations of input arguments.
+
+This example of class Date overloads:
+
+#include <ctime>
+
+class Date {
+public:
+    Date(int day, int month, int year) : day_(day), month_(month), year_(year) {}
+    Date(int day, int month) : day_(day), month_(month)  // automatically sets the Date to the current year
+    {
+        time_t t = time(NULL);
+        tm* timePtr = localtime(&t);
+        year_ = timePtr->tm_year;
+    }
+
+private:
+    int day_;
+    int month_;
+    int year_;
+};
+
+Operator Overloading
+. In this exercise you'll see how to achieve polymorphism with operator overloading. You can choose any operator from the ASCII table and give it your own set of rules!
+
+Operator overloading can be useful for many things. Consider the + operator. We can use it to add ints, doubles, floats, or even std::strings.
+
+In order to overload an operator, use the operator keyword in the function signature:
+
+Complex operator+(const Complex& addend) {
+  //...logic to add complex numbers
+}
+Imagine vector addition. You might want to perform vector addition on a pair of points to add their x and y components. The compiler won't recognize this type of operation on its own, because this data is user defined. However, you can overload the + operator so it performs the action that you want to implement.
