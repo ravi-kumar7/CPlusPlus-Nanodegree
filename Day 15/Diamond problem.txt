@@ -1,0 +1,1 @@
+if a class derives from two classes that derives from same abstract class, the conflict can emerge.
