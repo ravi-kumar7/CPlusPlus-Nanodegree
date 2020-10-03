@@ -47,7 +47,50 @@ string Uid(int pid) {
     return std::to_string(value); 
 }
 
+string User(int pid) { 
+    string user_id =  Uid(pid);
+    std::ifstream filestream("./etc/passwd");
+    string line,key,value;
+    while(std::getline(filestream, line)){
+        std::replace(line.begin(),line.end(),':',' ');
+        std::istringstream linestream(line);
+        linestream >> key>> value;
+        if(value == user_id)
+         break;
+    }
+    return key;
+    
+}
+
+
+string Command(int pid) { 
+    std::ifstream filestream("./proc/"+std::to_string(pid)+"/cmdline");
+    string line;
+    std::getline(filestream, line);
+    return line;
+}
+
+// TODO: Read and return the total number of processes
+int TotalProcesses() { 
+    std::ifstream filestream("./proc/stat");
+    string line,key;
+    int value;
+    while(std::getline(filestream, line)){
+        std::istringstream linestream(line);
+        linestream >> key>> value;
+        if(key == "processes")
+         break;
+    }
+    return value; 
+}
+
+// TODO: Read and return the number of running processes
+int RunningProcesses() { 
+
+    return 0; 
+    }
+
 int main(){
-    std::cout<< ElapsedTime(UpTime())<<"\n "<< Uid(11)<<" \n";
+    std::cout<<TotalProcesses()<<" \n";
 }
 
