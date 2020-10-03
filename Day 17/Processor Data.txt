@@ -44,3 +44,7 @@ You might want to update the system monitor to report the current utilization of
 Δ active time units / Δ total time units
 
 Consider this a bonus challenge that is not required to pass the project.
+
+https://github.com/Leo-G/DevopsWiki/wiki/How-Linux-CPU-Usage-Time-and-Percentage-is-calculated
+
+https://stackoverflow.com/questions/23367857/accurate-calculation-of-cpu-usage-given-in-percentage-in-linux
