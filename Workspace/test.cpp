@@ -5,6 +5,7 @@
 #include <dirent.h>
 #include <unistd.h>
 #include <regex>
+#include <vector>
 using std::string;
 
 // TODO: Complete this helper function
@@ -131,8 +132,24 @@ int RunningProcesses() {
     return value; 
     }
 
+std::vector<string> CpuUtilization() { 
+
+    std::vector<string> cpu_data;
+    std::ifstream filestream("./proc/stat");
+    string line,value;
+    std::getline(filestream, line);
+    std::istringstream linestream(line);
+    linestream >> value;
+    while(linestream >> value ){
+        if(value!= "")
+        cpu_data.push_back(value);
+    }
+    return cpu_data; 
+}
+
 
 int main(){
-    std::cout<<UpTime(11)<<" \n";
+    for(string val: CpuUtilization())
+    std::cout<<val<<"\n";
 }
 

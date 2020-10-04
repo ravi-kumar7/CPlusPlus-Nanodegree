@@ -1,0 +1,21 @@
+Technically jiffy in computer parlance is the duration of 1 tick of the system timer interrupt. It's not absolute though.
+A jiffy is basicly just a unit of time. The more loops the kernel can complete in a "jiffY" the faster your processor is. But since humans work in terms of mhz and ghz, it goes through a series of calculations to convert that number to something more usuable.
+The accuracy of various system calls that set timeouts and measure CPU time is limited by the resolution of the software clock, a clock maintained by the kernel which measures time in jiffies. The size of a jiffy is determined by the value of the kernel constant HZ.
+
+The value of HZ varies across kernel versions and hardware platforms.
+
+So basically when Jiffy is combined with HZ it is used to guess your CPU speed.
+
+Please go through this link and then search for /proc/[pid]/stat
+
+and read the corresponding values that are present in the file /proc/<process number>/stat.
+
+Once you go through it you will find there are number of values that are present there which can be used for various purposes.
+
+Since you want to know the ActiveJiffies for a process you will need to look for the values
+
+utime
+stime
+cutime
+cstime
+Then jiffies is sum of all these values for a process.
