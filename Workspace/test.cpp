@@ -90,7 +90,49 @@ int RunningProcesses() {
     return 0; 
     }
 
+
+    float MemoryUtilization() { 
+        std::ifstream filestream("./proc/meminfo");
+        string line, key;
+        std::getline(filestream, line);
+        std::istringstream linestream(line);
+        long total_mem, free_mem;
+        linestream >> key >> total_mem;
+
+        std::getline(filestream, line);
+        std::istringstream secondlinestream(line);
+        secondlinestream >> key >> free_mem;
+        float mem_utilization = (total_mem - free_mem)/1000.0f;
+        return mem_utilization; 
+    }
+
+    string Ram(int pid) {
+            std::ifstream filestream("./proc/"+std::to_string(pid)+"/status");
+    string line,key;
+    long value;
+    while(std::getline(filestream, line)){
+        std::istringstream linestream(line);
+        linestream >> key>> value;
+        if(key == "VmSize:")
+         break;
+    }
+    float ram = value/1000.0;
+    return std::to_string(ram) + " MB"; 
+         
+   }
+
+   long UpTime(int pid) { 
+    std::ifstream filestream("./proc/"+std::to_string(pid)+"/stat");
+    string line,key;
+    long value;
+    std::getline(filestream, line);
+    std::istringstream linestream(line);
+    linestream >> value>> key >> key >> value>> value>> value>> value>> value>> value>> value >> value>> value>> value>> value>> value>> value>> value>> value>> value>> value>> value>> value ;
+    return value; 
+    }
+
+
 int main(){
-    std::cout<<TotalProcesses()<<" \n";
+    std::cout<<UpTime(11)<<" \n";
 }
 
