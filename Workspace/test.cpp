@@ -147,9 +147,30 @@ std::vector<string> CpuUtilization() {
     return cpu_data; 
 }
 
+// TODO: Read and return the number of jiffies for the system
+long Jiffies() { return 0; }
+
+// TODO: Read and return the number of active jiffies for a PID
+// REMOVE: [[maybe_unused]] once you define the function
+long ActiveJiffies(int pid) { 
+    std::ifstream filestream("./proc/"+std::to_string(pid)+"/stat");
+    string line,key;
+    long value,utime,stime,cutime,cstime;
+    std::getline(filestream, line);
+    std::istringstream linestream(line);
+    linestream >> value>> key >> key >> value>> value>> value>> value>> value>> value>> value >> value>> value>> value>> utime>> stime>> cutime>> cstime;
+    return utime+stime+cutime+cstime; 
+
+ }
+
+// TODO: Read and return the number of active jiffies for the system
+long ActiveJiffies() { return 0; }
+
+// TODO: Read and return the number of idle jiffies for the system
+long IdleJiffies() { return 0; }
+
 
 int main(){
-    for(string val: CpuUtilization())
-    std::cout<<val<<"\n";
+    std::cout<<ActiveJiffies(11)<<"\n";
 }
 

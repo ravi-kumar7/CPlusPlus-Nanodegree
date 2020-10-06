@@ -14,8 +14,8 @@ Once you go through it you will find there are number of values that are present
 
 Since you want to know the ActiveJiffies for a process you will need to look for the values
 
-utime
-stime
-cutime
-cstime
+utime 14
+stime 15
+cutime16
+cstime17
 Then jiffies is sum of all these values for a process.
