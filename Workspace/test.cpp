@@ -6,6 +6,8 @@
 #include <unistd.h>
 #include <regex>
 #include <vector>
+#include <experimental/filesystem>
+
 using std::string;
 
 // TODO: Complete this helper function
@@ -147,6 +149,14 @@ std::vector<string> CpuUtilization() {
     return cpu_data; 
 }
 
+float calculateCpuUtilization(std::vector<string> cpu_data){
+    long prevIdle=0, prevNonIdle=0, prevTotal=0;
+    long idle=0, nonIdle=0, total=0;
+    
+    
+
+}
+
 // TODO: Read and return the number of jiffies for the system
 long Jiffies() { return 0; }
 
@@ -170,7 +180,16 @@ long ActiveJiffies() { return 0; }
 long IdleJiffies() { return 0; }
 
 
+void traverseDir()
+{
+std::experimental::filesystem::path path("./proc");
+for(const auto& entry: std::experimental::filesystem::directory_iterator(path)){
+    std::string filename = entry.path().filename();
+    std::cout<<filename<<"\n";
+}
+}
+
 int main(){
-    std::cout<<ActiveJiffies(11)<<"\n";
+    traverseDir();
 }
 

@@ -45,6 +45,10 @@
         "bitset": "cpp",
         "iterator": "cpp",
         "map": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "chrono": "cpp",
+        "codecvt": "cpp",
+        "filesystem": "cpp",
+        "ratio": "cpp"
     }
 }
