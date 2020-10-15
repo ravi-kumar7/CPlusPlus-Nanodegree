@@ -1,0 +1,28 @@
+s you have just seen in the video, the binary ASCII codes for the letters in UDACITY could be located in computer memory by using the address of the variable str1 from the code example above. The output of gdb can also be observed in the following image:
+
+
+You can clearly see that using hex numbers to display the information is a much shorter and more convenient form for a human programmer than looking at the binary numbers. Note that hex numbers are usually prepended with "0x".
+
+Computer memory is treated as a sequence of cells. This means that we can use the starting address to retrieve the byte of information stored there. The following figure illustrates the principle:
+
+Computer memory represented as a sequence of cells.
+Computer memory represented as a sequence of data cells (e.g. 01010101) with their respective memory addresses shown on top.
+
+Let us perform a short experiment using gdb again: By adding 1, 2, 3, … to the address of the string variable str1, we can proceed to the next cell until we reach the end of the memory we want to look at.
+
+
+Note that the numbers above represent the string "UDACITY" again. Also note that once we exceed the end of the string, the memory cell has the value 0x00. This means that the experiment has shown that an offset of 1 in a hexadecimal address corresponds to an offset of 8 bits (or 1 byte) in computer memory.
+
+Your Turn
+Unfortunately, gdb will not work in Udacity Workspaces, but you can still try this exercise either in your local environment if you have g++ and gdb installed, or you can use OnlineGDB to follow along.
+
+Try to locate the characters of "Udacity" using gdb in your local environment or in the online debugger.
+
+Using GDB Locally
+In order to use gdb locally, you will need to compile main.cpp with debugging symbols. This can be done with the -g option for g++:
+
+g++ -g main.cpp
+You can then run gdb on the output with:
+
+gdb a.out
+When gdb displays the line Type <RET> for more, q to quit, c to continue without paging, be sure to press the RETURN key to continue.
