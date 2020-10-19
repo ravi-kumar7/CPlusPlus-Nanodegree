@@ -1,0 +1,13 @@
+Resource Acquisition Is Initialization
+The RAII is a widespread programming paradigm, that can be used to protect a resource such as a file stream, a network connection or a block of memory which need proper management.
+
+Acquiring and releasing resources
+In most programs of reasonable size, there will be many situations where a certain action at some point will necessitate a proper reaction at another point, such as:
+
+Allocating memory with new or malloc, which must be matched with a call to delete or free.
+
+Opening a file or network connection, which must be closed again after the content has been read or written.
+
+Protecting synchronization primitives such as atomic operations, memory barriers, monitors or critical sections, which must be released to allow other threads to obtain them.
+
+The following table gives a brief overview of some resources and their respective allocation and deallocation calls in C++:
