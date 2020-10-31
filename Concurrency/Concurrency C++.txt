@@ -1,0 +1,16 @@
+Concurrency in C++ is provided by the thread support library, which can be accessed by including the header.
+
+A running program consists of at least one thread. When the main function is executed, we refer to it as the "main thread". Threads are uniquely identified by their thread ID, which can be particularly useful for debugging a program. The code on the right prints the thread identifier of the main thread and outputs it to the console:
+
+Image
+These are the results when run:
+
+Image
+You can compile this code from the terminal in the lower right using g++ as follows:
+
+
+g++ example_1.cpp
+and run it with
+
+
+./a.out
